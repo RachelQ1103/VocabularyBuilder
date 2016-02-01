@@ -1,1 +1,1 @@
-<img src="https://github.com/RachelQ1103/VocabularyBuilder/blob/master/login/login-big.png" />
+<img src="https://raw.githubusercontent.com/RachelQ1103/VocabularyBuilder/master/login/login.png" />
