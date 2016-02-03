@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vocabulary Sign-up</title>
+    <style>
+        body {
+            font-family: PingFangSC-Regular Avenir-Book;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:active {
+            color: black;
+        }
+        .float-right{
+            float: right;
+        }
+        .float-left {
+            float: left;
+        }
+        /* 顶端的状态栏,我还是不会用 jQuery, 想要抄一个 */
+        .voc-sign-container {
+            background: #FFFFFF;
+            width: 375px;
+            height: 667px;
+            border: 1px solid grey;
+        }
+        /* 后退键 */
+        .voc-sign-back {
+            margin-top: 16px;
+            margin-left: 19px;
+            margin-bottom: 10px;
+        }
+        /* 添加照片, 此处应该有链接到照片库, 是否该用 a */
+        .voc-sign-add {
+            margin-left: 200px;
+            position: relative;
+            z-index: 1;
+        }
+        /* 添加照片,是否需要用 jQuery */
+        .voc-sign-photo {
+            width: 120px;
+            height: 120px;
+            margin: -48px 120px 0 120px;
+            border-radius: 50%;
+        }
+        /* 输入界面 + 注册按钮 */
+        .voc-sign-input {
+            margin: 21px 43px 27px 43px;
+        }
+        /* 每个输入 div */
+        .voc-sign-input-wrapper {
+            margin-bottom: 14px;
+            width: 285px;
+            height: 66px;
+        }
+        .voc-sign-input-wrapper label {
+            font-family: PingFangSC-Regular;
+            font-size: 18px;
+            color: #939397;
+            letter-spacing: 8px;
+        }
+        .voc-sign-input-wrapper input {
+            width: 100%;
+            height: 35px;
+            margin-top: 2px;
+            font-size: 16px;
+            font-family: Avenir-Book PingFangSC-Regular;
+            color: #1D1D26;
+            border-bottom: 1px solid #EBEBEC;
+        }
+        .voc-sign-button {
+            width: 100%;
+            height: 55px;
+            margin-top: 20px;
+            background: #50D2C2;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+            font-family: PingFangSC-Regular;
+            font-size: 36px;
+            letter-spacing: 25px;
+            text-align-all: center;
+            color: #FFFFFF;
+            border: none;
+        }
+        /* 已有账号: */
+        .voc-login {
+            margin-top: 15px;
+            font-family: PingFangSC-Regular;
+            font-size: 18px;
+            color: rgba(29,29,37,0.71);
+        }
+    </style>
+</head>
+<body>
+<div class="voc-sign-container">
+    <div class="voc-header">
+        <img src="StatusBarBlack.png">
+    </div>
+    <div class="voc-sign-main">
+        <div class="voc-sign-back">
+            <img src="arrow-back.png">
+        </div>
+        <div class="voc-sign-info">
+            <div class="voc-sign-profile">
+                <img class="voc-sign-add float-left" src="add.png">
+                <img class="voc-sign-photo" src="profile.jpeg">
+            </div>
+            <div class="voc-sign-input">
+                <form class="voc-sign-textinput">
+                    <div class="voc-sign-input-wrapper">
+                        <label for="voc-user">用户名</label>
+                        <input type="text" name="username" id="voc-user">
+                    </div>
+                    <div class="voc-sign-input-wrapper">
+                        <label for="voc-email">邮箱</label>
+                        <input type="email" name="email" id="voc-email">
+                    </div>
+                    <div class="voc-sign-input-wrapper">
+                        <label for="voc-psw">密码</label>
+                        <input type="password" name="password" id="voc-psw">
+                    </div>
+                    <div class="voc-sign-input-wrapper">
+                        <label for="voc-psw-confirm">确认密码</label>
+                        <input type="password" name="password-confirm" id="voc-psw-confirm">
+                    </div>
+                </form>
+                <button class="voc-sign-button" type="submit">注册</button>
+                <a href="#" class="voc-login float-right">已有账号</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
