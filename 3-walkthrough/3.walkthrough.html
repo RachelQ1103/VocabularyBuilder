@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <title>3-walkthrough</title>
+    <style>
+        html {
+            font-size: 62.5%;
+        }
+        body {
+            font-family: PingFangSC-Regular Avenir-Book;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:active {
+            color: black;
+        }
+        .float-right{
+            float: right;
+        }
+        .float-left {
+            float: left;
+        }
+        /* 不知为何 height 100%之后, 有1463px,所以只能设置 px */
+        .voc-container {
+            background: #FFFFFF;
+            width: 100%;
+            height: 667px;
+        }
+        /*用bootstrap布局, 整个row偏移了15px,然后去源文件里改的 margin, bootstrap 为何要偏移*/
+        .voc-walk-main {
+            width: 100%;
+            height: 97%;
+        }
+        .voc-walk-title {
+            margin-top: 5%;
+        }
+        .voc-walk-menu {
+            padding: 0.9% 3% 0 8%;
+            width: 6%;
+            height: auto;
+        }
+        .voc-walk-menu img {
+            height: 100%;
+        }
+        /* Have a nice day!: */
+        .voc-walk-welcome {
+            padding-left: 10.6%;
+            font-family: Avenir-Book;
+            font-size: 2.4rem;
+            color: #1D1D26;
+            letter-spacing: 0.035rem;
+        }
+        /* 三张图片 */
+        .voc-walk-display {
+            margin-right: 0;
+            margin-top: 16%;
+            height: 63%;
+            width:  100%;
+        }
+        /* 两边图片区 */
+        .voc-walk-display-side {
+            padding: 3rem 0 0 0;
+            height:87.6%;
+            background: #FFFEFE;
+        }
+        .voc-walk-side-div {
+            width:100%;
+            height: 100%;
+            box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,0.50);
+            overflow: hidden;
+        }
+        .voc-walk-side-div img {
+            height: 75%;
+        }
+        /* 中心图片区 */
+        .voc-walk-display-center {
+            height: 100%;
+            padding: 0 1rem;
+        }
+        /* 空 div 主要是为了设置阴影 */
+        .voc-walk-center-div {
+            height: 100%;
+            font-family: Avenir-Book;
+            font-size: 2rem;
+            color: #0E0E0E;
+            box-shadow: 0 0.2rem 0.4rem 0 rgba(0,0,0,0.50);
+        }
+        .voc-walk-center-pic {
+            width: 100%;
+            height: 53%;
+            position: relative;
+        }
+        /* 下层图片模糊化 */
+        #pic-bottom {
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            -webkit-filter: blur(2px);
+        }
+        /* 上层图片只显示圆内部分 */
+        #pic-top {
+            width: 100%;
+            height: 100%;
+            -webkit-clip-path: circle(33% at 47% 40%);
+            position: absolute;
+            top: 2.4rem;
+            left: 1rem;
+        }
+        .voc-walk-center-words {
+            margin: 2rem 1.5rem;
+            font-family: Avenir-Book;
+            font-size: 2rem;
+            color: #0E0E0E;
+            text-align: center;
+        }
+        .voc-walk-nav-bar {
+            width: 40%;
+            height: 1.6rem;
+            margin: 20% 25% 12% 40%;
+            position: relative;
+        }
+        /* 如何在 margin-right 时候,最后一个设为0 */
+        .voc-walk-nav {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: #D8D8D8;
+            list-style: none;
+            margin-right: 30%;
+        }
+        /* 垂直居中弄不起来,所以用了 absolute */
+        /* 不设置position absolute的话, 如何让三个点居中,以中线对齐,而不是上边线. */
+        .walk-nav-active {
+            background: #50D2C2;
+            width: 1.6rem;
+            height: 1.6rem;
+            position: absolute;
+            top: -0.3rem;
+            left: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="voc-container">
+    <div class="voc-header">
+        <img src="StatusBarBlack.png">
+    </div>
+    <div class="voc-walk-main">
+        <div class="voc-walk-title row">
+            <div class="voc-walk-menu col-xs-2">
+                <img src="menu.png">
+            </div>
+            <div class="voc-walk-welcome col-xs-10">
+                Have a nice day!
+            </div>
+        </div>
+        <div class="voc-walk-display row">
+            <div class="voc-walk-display-side col-xs-1">
+                <div class="voc-walk-side-div">
+                    <img src="mountain.jpg" class="float-right">
+                </div>
+            </div>
+            <div class="voc-walk-display-center col-xs-10">
+                <div class="voc-walk-center-div">
+                    <div class="voc-walk-center-pic">
+                        <img id="pic-bottom" src="book.jpg">
+                        <img id="pic-top" src="book.jpg">
+                    </div>
+                    <div class="voc-walk-center-words">
+                        <p>Always bear in mind that your own resolution to
+                            succeed is more important than any one thing. </p>
+                        <p class="float-right" style="padding-top: 0.6rem">
+                            --Abraham Lincoln
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="voc-walk-display-side col-xs-1">
+                <div class="voc-walk-side-div">
+                    <img src="sea.jpg" class="float-left">
+                </div>
+            </div>
+        </div>
+        <ul class="voc-walk-nav-bar">
+            <li class="voc-walk-nav float-left">
+                <a href="#left-side"></a>
+            </li>
+            <li class="voc-walk-nav float-left walk-nav-active">
+                <a href="#"></a>
+            </li>
+            <li class="voc-walk-nav float-left">
+                <a href="#right-side"></a>
+            </li>
+        </ul>
+</body>
+</html>
